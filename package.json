@@ -1,0 +1,12 @@
+{
+  "name": "cardwatch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@microsoft/signalr": "^6.0.4",
+    "axios": "^0.27.2"
+  }
+}
