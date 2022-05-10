@@ -11,6 +11,7 @@
     "luxon": "^2.4.0"
   },
   "devDependencies": {
-    "@types/luxon": "^2.3.2"
+    "@types/luxon": "^2.3.2",
+    "@types/node": "^17.0.31"
   }
 }
