@@ -6,7 +6,7 @@ import { alert } from "./utils"
 const configObj: Config = config
 
 // config
-const keepAliveInterval = 300000 // 5 minutes
+const keepAliveInterval = 60000 // 1 minutes
 const scanned: string[] = []; // scanned merchange entries
 
 // helpers
