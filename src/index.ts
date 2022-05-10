@@ -36,11 +36,6 @@ let connection = new signalR.HubConnectionBuilder()
     skipNegotiation: true,
     transport: signalR.HttpTransportType.WebSockets
   })
-  .withAutomaticReconnect([
-    1000, // 1 second 
-    300000, // 5 minutes
-    // will crash from keepAlive before then
-  ])
   .build();
 
 // hooks
@@ -49,10 +44,6 @@ connection.on("UpdateMerchantGroup", (data, merchantGroup): void => parseMerchan
 // configuration
 connection.serverTimeoutInMilliseconds = 600000 // 5 minute
 connection.keepAliveIntervalInMilliseconds = keepAliveInterval
-connection.on("reconnecting", () => {
-  console.log("Reconnecting...")
-  connection.invoke("SubscribeToServer", configObj.server)
-})
 
 connection.start()
   .then(() => connection.invoke("SubscribeToServer", configObj.server))
