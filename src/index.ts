@@ -10,7 +10,7 @@ const keepAliveInterval = 300000 // 5 minutes
 const scanned: string[] = []; // scanned merchange entries
 
 // helpers
-const getMerchantGroups = (server: string, merchantGroup: MerchantResponse) => {
+const parseMerchantGroup = (merchantGroup: MerchantResponse): void => {
   console.log(new Date())
   const activeMerchant = merchantGroup.activeMerchants[0]
   // if already scanned, skip
@@ -24,6 +24,7 @@ const getMerchantGroups = (server: string, merchantGroup: MerchantResponse) => {
     alert(activeMerchant)
   } else if (activeMerchant.rapport.rarity === CardRarity.Legendary) {
     console.log("\tAlert Legndary Rapport")
+    alert(activeMerchant)
   }
   // otherwise log
   else console.log("\tSkipping", cardName)
@@ -38,14 +39,12 @@ let connection = new signalR.HubConnectionBuilder()
   .withAutomaticReconnect([
     1000, // 1 second 
     300000, // 5 minutes
-    300000, // 5 minutes
-    300000, // 5 minutes
-    300000, // 5 minutes
+    // will crash from keepAlive before then
   ])
   .build();
 
 // hooks
-connection.on("UpdateMerchantGroup", getMerchantGroups);
+connection.on("UpdateMerchantGroup", (data, merchantGroup): void => parseMerchantGroup(merchantGroup));
 
 // configuration
 connection.serverTimeoutInMilliseconds = 600000 // 5 minute
@@ -57,6 +56,8 @@ connection.on("reconnecting", () => {
 
 connection.start()
   .then(() => connection.invoke("SubscribeToServer", configObj.server))
+  .then(() => connection.invoke("GetKnownActiveMerchantGroups", configObj.server))
+    .then((data: MerchantResponse[]): void => data.forEach(merchantGroup => parseMerchantGroup(merchantGroup)))
   // test alert on startup
   /*
   .then(() => {
