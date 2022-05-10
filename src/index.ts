@@ -6,7 +6,7 @@ import { alert } from "./utils"
 const configObj: Config = config
 
 // config
-const keepAliveInterval = 30000 // 30 seconds
+const keepAliveInterval = 300000 // 5 minutes
 const scanned: string[] = []; // scanned merchange entries
 
 // helpers
@@ -39,14 +39,25 @@ let connection = new signalR.HubConnectionBuilder()
     skipNegotiation: true,
     transport: signalR.HttpTransportType.WebSockets
   })
+  .withAutomaticReconnect([
+    1000, // 1 second 
+    360000, // 6 minutes
+    300000, // 5 minutes
+    300000, // 5 minutes
+    300000, // 5 minutes
+  ])
   .build();
 
 // hooks
 connection.on("UpdateMerchantGroup", getMerchantGroups);
 
 // configuration
-connection.serverTimeoutInMilliseconds = 60000 // 1 minute
+connection.serverTimeoutInMilliseconds = 600000 // 5 minute
 connection.keepAliveIntervalInMilliseconds = keepAliveInterval
+connection.on("reconnecting", () => {
+  console.log("Reconnecting...")
+  connection.invoke("SubscribeToServer", configObj.server)
+})
 
 connection.start()
   .then(() => connection.invoke("SubscribeToServer", configObj.server))
