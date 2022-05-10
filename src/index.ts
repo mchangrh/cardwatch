@@ -1,6 +1,6 @@
 import * as signalR from "@microsoft/signalr";
 import * as config from "./config.json"
-import { MerchantResponse, Config } from "./types"
+import { MerchantResponse, Config, CardRarity } from "./types"
 import { alert } from "./utils"
 
 const configObj: Config = config
@@ -22,9 +22,14 @@ const getMerchantGroups = () =>
         // check against config
         const cardName = activeMerchant.card.name
         // if match, alert
-        if (configObj.cards.includes(cardName)) alert(activeMerchant)
+        if (configObj.cards.includes(cardName)) {
+          console.log("\tAlert", cardName)
+          alert(activeMerchant)
+        } else if (activeMerchant.rapport.rarity === CardRarity.Legendary) {
+          console.log("\tAlert Legndary Rapport")
+        }
         // otherwise log
-        else console.log("No alert for", cardName)
+        else console.log("\tSkipping", cardName)
       }
     })
 
@@ -53,8 +58,8 @@ connection.start()
       id: '4eb2a44f-820b-4530-6ff5-08da316c3c19',
       name: 'Burt',
       zone: 'Leyar Terrace',
-      card: { name: 'Thunderwings', rarity: 3 },
-      rapport: { name: 'Azenaporium Brooch', rarity: 3 },
+      card: { name: 'Seria', rarity: 3 },
+      rapport: { name: 'fake', rarity: 4 },
       votes: 3
     })
   })

@@ -20,7 +20,7 @@ export type ActiveMerchant = {
   votes: number
 }
 
-enum CardRarity {
+export enum CardRarity {
   Common = 0,
   Uncommon = 1,
   Rare = 2,

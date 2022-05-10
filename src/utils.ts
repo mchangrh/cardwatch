@@ -21,14 +21,17 @@ export const alert = (merchant: ActiveMerchant) => {
   //  pull region from config file
   const region = (merchantList as Record<string, any>)[merchant.name].Region
   // leaves on the 55th of every hour
-  const leaveTime = DateTime.now().set({minute: 55}).toUnixInteger();
+  const leaveTime = DateTime.now().set({minute: 55, second: 0}).toUnixInteger();
   // setup emotes with fallback
   const cardEmote = cardEmotes[merchant.card.rarity] ?? ""
   const rapportEmote = rapportEmotes[merchant.rapport.rarity] ?? ""
   const cardAlert = configObj.roleAlert[merchant.card.name]
   const rapportAlert = configObj.roleAlert.rapport
+  // figure out alerts
+  let mentions = cardAlert ? `<@&${cardAlert}>` : ""
+  if (merchant.rapport.rarity === CardRarity.Legendary) mentions += `\n<@&${rapportAlert}>`
   const embed = {
-    content: cardAlert ? `<@&${cardAlert}>` : merchant.rapport.rarity === CardRarity.Legendary ? `<@&${rapportAlert}>` : "",
+    content: mentions,
     username: "Second Dynasty",
     avatar_url: "https://fs.mchang.icu/pub/dynasty/icon.png",
     embeds: [{
