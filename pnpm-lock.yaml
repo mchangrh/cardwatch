@@ -2,11 +2,17 @@ lockfileVersion: 5.4
 
 specifiers:
   '@microsoft/signalr': ^6.0.4
+  '@types/luxon': ^2.3.2
   axios: ^0.27.2
+  luxon: ^2.4.0
 
 dependencies:
   '@microsoft/signalr': 6.0.4
   axios: 0.27.2
+  luxon: 2.4.0
+
+devDependencies:
+  '@types/luxon': 2.3.2
 
 packages:
 
@@ -23,6 +29,10 @@ packages:
       - encoding
       - utf-8-validate
     dev: false
+
+  /@types/luxon/2.3.2:
+    resolution: {integrity: sha512-WOehptuhKIXukSUUkRgGbj2c997Uv/iUgYgII8U7XLJqq9W2oF0kQ6frEznRQbdurioz+L/cdaIm4GutTQfgmA==}
+    dev: true
 
   /abort-controller/3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -92,6 +102,11 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: false
+
+  /luxon/2.4.0:
+    resolution: {integrity: sha512-w+NAwWOUL5hO0SgwOHsMBAmZ15SoknmQXhSO0hIbJCAmPKSsGeK8MlmhYh2w6Iib38IxN2M+/ooXWLbeis7GuA==}
+    engines: {node: '>=12'}
     dev: false
 
   /mime-db/1.52.0:
