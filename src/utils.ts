@@ -1,6 +1,6 @@
 import * as config from "./config.json"
 import axios from "axios"
-import { ActiveMerchant, Config } from "./types"
+import { ActiveMerchant, CardRarity, Config } from "./types"
 import { DateTime } from "luxon";
 import * as merchantList from "./merchants.json"
 
@@ -25,9 +25,10 @@ export const alert = (merchant: ActiveMerchant) => {
   // setup emotes with fallback
   const cardEmote = cardEmotes[merchant.card.rarity] ?? ""
   const rapportEmote = rapportEmotes[merchant.rapport.rarity] ?? ""
-  const roleAlert = configObj.roleAlert[merchant.card.name]
+  const cardAlert = configObj.roleAlert[merchant.card.name]
+  const rapportAlert = configObj.roleAlert.rapport
   const embed = {
-    content: roleAlert ? `<@&${roleAlert}>` : "",
+    content: cardAlert ? `<@&${cardAlert}>` : merchant.rapport.rarity === CardRarity.Legendary ? `<@&${rapportAlert}>` : "",
     username: "Second Dynasty",
     avatar_url: "https://fs.mchang.icu/pub/dynasty/icon.png",
     embeds: [{
