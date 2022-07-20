@@ -30,7 +30,7 @@ export const alert = (merchant: ActiveMerchant) => {
   // figure out alerts
   let mentions = cardAlert ? `<@&${cardAlert}>` : ""
   if (merchant.rapport.rarity === CardRarity.Legendary) mentions += `\n<@&${rapportAlert}>`
-  if (merchant.card.rarity === CardRarity.Legendary) mentions += `\n This is a Legendary card. Double check to make sure it's real.`
+  if (merchant.card.rarity === CardRarity.Legendary) mentions += `\n This is a Legendary card. [Double check](https://lostmerchants.com/) to make sure it's real.`
   const embed = {
     content: mentions,
     username: "Second Dynasty",
