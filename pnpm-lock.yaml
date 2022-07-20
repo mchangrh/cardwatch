@@ -1,25 +1,25 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@microsoft/signalr': ^6.0.4
-  '@types/luxon': ^2.3.2
-  '@types/node': ^17.0.31
+  '@microsoft/signalr': ^6.0.7
+  '@types/luxon': ^3.0.0
+  '@types/node': ^18.0.6
   axios: ^0.27.2
-  luxon: ^2.4.0
+  luxon: ^3.0.1
 
 dependencies:
-  '@microsoft/signalr': 6.0.4
+  '@microsoft/signalr': 6.0.7
   axios: 0.27.2
-  luxon: 2.4.0
+  luxon: 3.0.1
 
 devDependencies:
-  '@types/luxon': 2.3.2
-  '@types/node': 17.0.31
+  '@types/luxon': 3.0.0
+  '@types/node': 18.0.6
 
 packages:
 
-  /@microsoft/signalr/6.0.4:
-    resolution: {integrity: sha512-YeWRh4LxfYnq4I5CKw17/HOq8rY+ouTv6Bq+s55122StE3pK29j8j2OpP+1PA3D1ksHPfy7dFIgC33yr/E+01A==}
+  /@microsoft/signalr/6.0.7:
+    resolution: {integrity: sha512-CoIz8K0IpaCGbI4rr2W8RHYA8Yq0KqY8DNsJzHw3UEWTJ3KqhWqeVCE8R24czzcsoUrE28xltEQ6qNTXZDHf3g==}
     dependencies:
       abort-controller: 3.0.0
       eventsource: 1.1.0
@@ -32,12 +32,12 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@types/luxon/2.3.2:
-    resolution: {integrity: sha512-WOehptuhKIXukSUUkRgGbj2c997Uv/iUgYgII8U7XLJqq9W2oF0kQ6frEznRQbdurioz+L/cdaIm4GutTQfgmA==}
+  /@types/luxon/3.0.0:
+    resolution: {integrity: sha512-Lx+EZoJxUKw4dp8uei9XiUVNlgkYmax5+ovqt6Xf3LzJOnWhlfJw/jLBmqfGVwOP/pDr4HT8bI1WtxK0IChMLw==}
     dev: true
 
-  /@types/node/17.0.31:
-    resolution: {integrity: sha512-AR0x5HbXGqkEx9CadRH3EBYx/VkiUgZIhP4wvPn/+5KIsgpNoyFaRlVe0Zlx9gRtg8fA06a9tskE2MSN7TcG4Q==}
+  /@types/node/18.0.6:
+    resolution: {integrity: sha512-/xUq6H2aQm261exT6iZTMifUySEt4GR5KX8eYyY+C4MSNPqSh9oNIP7tz2GLKTlFaiBbgZNxffoR3CVRG+cljw==}
     dev: true
 
   /abort-controller/3.0.0:
@@ -110,8 +110,8 @@ packages:
       mime-types: 2.1.35
     dev: false
 
-  /luxon/2.4.0:
-    resolution: {integrity: sha512-w+NAwWOUL5hO0SgwOHsMBAmZ15SoknmQXhSO0hIbJCAmPKSsGeK8MlmhYh2w6Iib38IxN2M+/ooXWLbeis7GuA==}
+  /luxon/3.0.1:
+    resolution: {integrity: sha512-hF3kv0e5gwHQZKz4wtm4c+inDtyc7elkanAsBq+fundaCdUBNJB1dHEGUZIM6SfSBUlbVFduPwEtNjFK8wLtcw==}
     engines: {node: '>=12'}
     dev: false
 
@@ -159,7 +159,7 @@ packages:
     dev: false
 
   /requires-port/1.0.0:
-    resolution: {integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=}
+    resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
     dev: false
 
   /tough-cookie/4.0.0:
@@ -172,7 +172,7 @@ packages:
     dev: false
 
   /tr46/0.0.3:
-    resolution: {integrity: sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=}
+    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: false
 
   /universalify/0.1.2:
@@ -188,11 +188,11 @@ packages:
     dev: false
 
   /webidl-conversions/3.0.1:
-    resolution: {integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=}
+    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
     dev: false
 
   /whatwg-url/5.0.0:
-    resolution: {integrity: sha1-lmRU6HZUYuN2RNNib2dCzotwll0=}
+    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
