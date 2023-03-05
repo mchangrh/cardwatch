@@ -28,8 +28,7 @@ export const alert = (merchant: ActiveMerchant) => {
   const cardAlert = configObj.roleAlert[merchant.card.name]
   const rapportAlert = configObj.roleAlert.rapport
   // figure out alerts
-  let mentions = cardAlert ? `<@&${cardAlert}>` : ""
-  if (merchant.rapport.rarity === CardRarity.Legendary) mentions += `\n<@&${rapportAlert}>`
+  let mentions = cardAlert ? `<@${cardAlert}>` : ""
   if (merchant.card.rarity === CardRarity.Legendary) mentions += `\n This is a Legendary card. [Double check](https://lostmerchants.com/) to make sure it's real.`
   const embed = {
     content: mentions,

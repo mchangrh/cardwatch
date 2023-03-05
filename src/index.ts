@@ -22,9 +22,6 @@ const parseMerchantGroup = (merchantGroup: MerchantResponse): void => {
   if (configObj.cards.includes(cardName)) {
     console.log("\tAlert", cardName)
     alert(activeMerchant)
-  } else if (activeMerchant.rapport.rarity === CardRarity.Legendary) {
-    console.log("\tAlert Legndary Rapport")
-    alert(activeMerchant)
   }
   // otherwise log
   else console.log("\tSkipping", cardName)
@@ -63,20 +60,6 @@ connection.keepAliveIntervalInMilliseconds = keepAliveInterval
 
 connection.start()
   .then(() => start())
-  // test alert on startup
-  /*
-  .then(() => {
-    alert({
-      id: '4eb2a44f-820b-4530-6ff5-08da316c3c19',
-      name: 'Burt',
-      zone: 'Leyar Terrace',
-      card: { name: 'Seria', rarity: 3 },
-      rapport: { name: 'fake', rarity: 4 },
-      votes: 3
-    })
-  })
-  */
-
 // send keepalive
 setInterval(() => {
   connection.invoke("HasNewerClient", 0)
