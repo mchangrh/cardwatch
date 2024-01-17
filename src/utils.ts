@@ -32,8 +32,8 @@ export const alert = (merchant: ActiveMerchant) => {
   if (merchant.card.rarity === CardRarity.Legendary) mentions += `\n This is a Legendary card. [Double check](https://lostmerchants.com/) to make sure it's real.`
   const embed = {
     content: mentions,
-    username: "Second Dynasty",
-    avatar_url: "https://fs.mchang.icu/pub/dynasty/icon.png",
+    username: "Cardwatch",
+    avatar_url: "https://lostmerchants.com/favicon.ico",
     embeds: [{
       title: "Travelling Merchant Alert",
       color: 0xb50817,
